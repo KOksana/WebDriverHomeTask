@@ -27,6 +27,10 @@ namespace WebDriverHomeTask.Steps
         {
             return _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
         }
+        public IWebElement GetResultFirstItem()
+        {
+            return _searchResultPage.ItemTitles[0];
+        }
         public void WaitCatalogPageIsDisplayed()
         {
             _wait.Until(drv => _searchResultPage.CategoryTitle.Displayed);

@@ -40,28 +40,49 @@ namespace WebDriverHomeTask
 
             var resultList = resultPage.GetResultItemTitles();
 
-            Assert.IsTrue(resultList.All(i => i.Contains(searchProduct)));
+            Assert.IsTrue(resultList.Length > 0, "No elements in result"); ;
+
+            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contain");
         }
 
         [Test]
         public void SearchTVLG()
         {
-            string catalogItem = "Телевизоры, фото, видео";
-            string itemSpecific = "LG";
-
+            string searchProduct = "LG";
             _driver.Url = URL;
             var homePage = new HomePageSteps(_driver);
             var resultPage = new SearchResultPageSteps(_driver);
 
             homePage.WaitPageIsDisplayed();
 
-            homePage.NavigateTo(catalogItem, itemSpecific);
+            homePage.Search(searchProduct);
 
-            resultPage.WaitCatalogPageIsDisplayed();
+            resultPage.WaitSearchPageIsDisplayed();
 
             var resultList = resultPage.GetResultItemTitles();
 
-            Assert.IsTrue(resultList.All(i => i.Contains(itemSpecific)));
+            Assert.IsTrue(resultList.Length > 0, "No elements in result"); ;
+
+            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contain");
+        }
+
+        [Test]
+        public void SearchAndCheckTV()
+        {
+            string searchProduct = "TV";
+            _driver.Url = URL;
+            var homePage = new HomePageSteps(_driver);
+            var resultPage = new SearchResultPageSteps(_driver);
+
+            homePage.WaitPageIsDisplayed();
+
+            homePage.Search(searchProduct);
+
+            resultPage.WaitSearchPageIsDisplayed();
+
+            var resultList = resultPage.GetResultItemTitles();
+
+            Assert.IsTrue(resultList.All(i => i.Contains(searchProduct)));
         }
 
         [OneTimeTearDown]
