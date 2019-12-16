@@ -44,9 +44,9 @@ namespace WebDriverHomeTask.Steps
            // System.Threading.Thread.Sleep(5000);
           //  actions.MoveToElement(_homePage.CatalogItemSpecific(itemSpecific)).Perform();
             // var elem = _driver.FindElement(By.CssSelector(".menu-aim__item-submenu a[title ='LG']"));
-            var elem = _driver.FindElement(By.XPath("//a[@title='Телевизоры, фото, видео']/following-sibling::div//a[@title='LG']"));
+          //  var elem = _driver.FindElement(By.XPath("//a[@title='Телевизоры, фото, видео']/following-sibling::div//a[@title='LG']"));
 
-            actions.MoveToElement(elem).Click().Build().Perform();
+         //  actions.MoveToElement(elem).Click().Build().Perform();
 
 
 

@@ -40,30 +40,32 @@ namespace WebDriverHomeTask
 
             var resultList = resultPage.GetResultItemTitles();
 
-            Assert.IsTrue(resultList.Length > 0, "No elements in result"); ;
+            Assert.IsTrue(resultList.Length > 0, "No elements in result");
 
-            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contain");
+            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contains product name");
         }
 
         [Test]
-        public void SearchTVLG()
+        public void NavigateTVLG()
         {
-            string searchProduct = "LG";
+            string catalogItem = "Телевизоры, фото, видео";
+            string itemSpecific = "LG";
+
             _driver.Url = URL;
             var homePage = new HomePageSteps(_driver);
-            var resultPage = new SearchResultPageSteps(_driver);
+            var resultPage = new ProductListPageSteps(_driver);
 
             homePage.WaitPageIsDisplayed();
 
-            homePage.Search(searchProduct);
+            homePage.NavigateTo(catalogItem, itemSpecific);
 
-            resultPage.WaitSearchPageIsDisplayed();
+            resultPage.WaitCatalogPageIsDisplayed();
 
             var resultList = resultPage.GetResultItemTitles();
 
-            Assert.IsTrue(resultList.Length > 0, "No elements in result"); ;
+            Assert.IsTrue(resultList.Length > 0, "No elements in result");
 
-            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contain");
+            Assert.IsTrue(resultList.All(i => i.Contains(itemSpecific)), "Not All contains product name");
         }
 
         [Test]
@@ -82,7 +84,9 @@ namespace WebDriverHomeTask
 
             var resultList = resultPage.GetResultItemTitles();
 
-            Assert.IsTrue(resultList.All(i => i.Contains(searchProduct)));
+            Assert.IsTrue(resultList.Length > 0, "No elements in result");
+
+            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contains product name");
         }
 
         [OneTimeTearDown]

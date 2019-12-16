@@ -19,7 +19,7 @@ namespace WebDriverHomeTask.Pages
 
         public IWebElement[] ItemTitles => _driver.FindElements(By.CssSelector(".short-itm-desc > .card-product-link")).ToArray();
 
-        public IWebElement CategoryTitle => _driver.FindElement(By.ClassName("catalog__main-content"));
+      //  public IWebElement CategoryTitle => _driver.FindElement(By.ClassName("catalog__main-content"));
 
         public IWebElement SearchTitle => _driver.FindElement(By.ClassName("result-title"));
     }

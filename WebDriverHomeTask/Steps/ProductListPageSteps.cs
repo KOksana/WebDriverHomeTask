@@ -9,36 +9,31 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebDriverHomeTask.Steps
 {
-    class SearchResultPageSteps
+    public class ProductListPageSteps
     {
         private IWebDriver _driver;
-        private SearchResultPage _searchResultPage;
+        private ProductListPage _productListPage;
         private WebDriverWait _wait;
 
 
-        public SearchResultPageSteps(IWebDriver driver)
+        public ProductListPageSteps(IWebDriver driver)
         {
             _driver = driver;
-            _searchResultPage = new SearchResultPage(_driver);
+            _productListPage = new ProductListPage(_driver);
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
         }
 
         public string[] GetResultItemTitles()
         {
-            return _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
+            return _productListPage.ItemTitles.Select(i => i.Text).ToArray();
         }
         public IWebElement GetResultFirstItem()
         {
-            return _searchResultPage.ItemTitles[0];
+            return _productListPage.ItemTitles[0];
         }
-        //public void WaitCatalogPageIsDisplayed()
-        //{
-        //    _wait.Until(drv => _searchResultPage.CategoryTitle.Displayed);
-        //}
-
-        public void WaitSearchPageIsDisplayed()
+        public void WaitCatalogPageIsDisplayed()
         {
-            _wait.Until(drv => _searchResultPage.SearchTitle.Displayed);
+            _wait.Until(drv => _productListPage.CategoryTitle.Displayed);
         }
     }
 }
