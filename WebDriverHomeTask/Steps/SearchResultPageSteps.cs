@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebDriverHomeTask.Pages;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Linq;
+using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
 {
@@ -23,18 +20,21 @@ namespace WebDriverHomeTask.Steps
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
         }
 
-        public string[] GetResultItemTitles()
-        {
-            return _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
+        public string[] GetResultItemTitles
+            => _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
+
+        public string[] GetFilterListForTV
+            => _searchResultPage.FilterListForTV.Select(i => i.Text).ToArray();
+
+        public void NavigateToProduct(int productIndex) {
+            _searchResultPage.ItemTitles[productIndex].Click();
         }
-        public IWebElement GetResultFirstItem()
-        {
-            return _searchResultPage.ItemTitles[0];
-        }
-        //public void WaitCatalogPageIsDisplayed()
-        //{
-        //    _wait.Until(drv => _searchResultPage.CategoryTitle.Displayed);
-        //}
+
+        public string GetProductName(int productIndex) 
+            =>_searchResultPage.ItemTitles[productIndex].Text;
+
+        public string GetProductPrice(int productIndex)
+            => _searchResultPage.ItemPrices[productIndex].Text;
 
         public void WaitSearchPageIsDisplayed()
         {

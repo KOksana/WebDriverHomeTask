@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebDriverHomeTask.Pages;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Linq;
+using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
 {
@@ -23,14 +20,9 @@ namespace WebDriverHomeTask.Steps
             _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
         }
 
-        public string[] GetResultItemTitles()
-        {
-            return _productListPage.ItemTitles.Select(i => i.Text).ToArray();
-        }
-        public IWebElement GetResultFirstItem()
-        {
-            return _productListPage.ItemTitles[0];
-        }
+        public string[] GetResultItemTitles
+            => _productListPage.ItemTitles.Select(i => i.Text).ToArray();
+
         public void WaitCatalogPageIsDisplayed()
         {
             _wait.Until(drv => _productListPage.CategoryTitle.Displayed);

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
+using System.Linq;
 using WebDriverHomeTask.Core;
 using WebDriverHomeTask.Steps;
 
@@ -38,7 +32,7 @@ namespace WebDriverHomeTask
 
             resultPage.WaitSearchPageIsDisplayed();
 
-            var resultList = resultPage.GetResultItemTitles();
+            var resultList = resultPage.GetResultItemTitles;
 
             Assert.IsTrue(resultList.Length > 0, "No elements in result");
 
@@ -61,7 +55,7 @@ namespace WebDriverHomeTask
 
             resultPage.WaitCatalogPageIsDisplayed();
 
-            var resultList = resultPage.GetResultItemTitles();
+            var resultList = resultPage.GetResultItemTitles;
 
             Assert.IsTrue(resultList.Length > 0, "No elements in result");
 
@@ -75,6 +69,7 @@ namespace WebDriverHomeTask
             _driver.Url = URL;
             var homePage = new HomePageSteps(_driver);
             var resultPage = new SearchResultPageSteps(_driver);
+            var productPage = new ProductPageSteps(_driver);
 
             homePage.WaitPageIsDisplayed();
 
@@ -82,17 +77,60 @@ namespace WebDriverHomeTask
 
             resultPage.WaitSearchPageIsDisplayed();
 
-            var resultList = resultPage.GetResultItemTitles();
+            var expectedName = resultPage.GetProductName(0);
+            var expectedPrice = resultPage.GetProductPrice(0);
 
-            Assert.IsTrue(resultList.Length > 0, "No elements in result");
+            resultPage.NavigateToProduct(0);
 
-            Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProduct)), "Not All contains product name");
+            productPage.WaitProductPageIsDisplayed();
+
+            var actualName = productPage.GetProductTitle;
+            var actualPrice = productPage.GetProductPrice;
+
+            Assert.AreEqual(expectedName, actualName, $"Expected name {expectedName}, but displayed {actualName}");
+            Assert.AreEqual(expectedPrice, actualPrice, $"Expected price {expectedPrice}, but displayed {actualPrice}");
         }
+
+        [Test]
+        public void SearchTVCheckFilter()
+        {
+            string searchProduct = "TV";
+            _driver.Url = URL;
+            var homePage = new HomePageSteps(_driver);
+            var resultPage = new SearchResultPageSteps(_driver);
+           
+            homePage.WaitPageIsDisplayed();
+
+            homePage.Search(searchProduct);
+
+            resultPage.WaitSearchPageIsDisplayed();
+
+            var expectedFilterList = new string[] {
+                "Смартфоны",
+                "Мобильные телефоны",
+                "Планшеты",
+                "Ноутбуки и ультрабуки",
+                "iMac"
+            };
+
+            var actualFilterList = resultPage.GetFilterListForTV;
+
+            Assert.AreEqual(expectedFilterList.Length, actualFilterList.Length, "Filter list has different length");
+
+            if (expectedFilterList.Length == actualFilterList.Length) {
+                for (int i = 0; i < expectedFilterList.Length; i++) {
+                    Assert.AreEqual(expectedFilterList[i], actualFilterList[i], "Different element name");
+                }
+            }
+
+           
+        }
+
 
         [OneTimeTearDown]
         public void TearDown()
         {
-            //_driver.Quit();
+            _driver.Quit();
         }
     }
 }

@@ -27,33 +27,28 @@ namespace WebDriverHomeTask.Steps
 
         public void NavigateTo(string catalogItem, string itemSpecific)
         {
+            // Wasn't able to navigate to sub catalog 
+
             //_homePage.CatalogButton.Click();
+
+            //_homePage.CatalogItem(catalogItem).ClickA
 
             Actions actions = new Actions(_driver);
             
-            actions.MoveToElement(_homePage.CatalogItem(catalogItem)).Perform();
+            actions.MoveToElement(_homePage.CatalogItem(catalogItem)).ClickAndHold().Build().Perform();
 
             // _wait.Until(drv => _homePage.CatalogItemSpecific(itemSpecific).Enabled);
 
-            // _wait.Until(drv => _driver.FindElements(By.CssSelector(".menu-aim__item-submenu .wrap"))[0].Displayed);
 
-              //actions.MoveToElement(_homePage.CatalogItemSpecific(itemSpecific)).Perform();
+            //var elem = _driver.FindElement(By.CssSelector(".menu-aim__item-submenu a[title ='LG']"));
+            //actions.MoveToElement(elem).Click().Build().Perform();
 
-            // var elem = _homePage.CatalogItemSpecific(itemSpecific);
+           // Actions actions2 = new Actions(_driver);
+            //actions2.MoveToElement(_homePage.CatalogItemSpecific(itemSpecific)).Build().Perform();
+            //actions2.MoveToElement(_driver.FindElement(By.CssSelector(".menu-aim__item-submenu a[title ='LG']"))).Perform();
+            //actions2.Click().Perform();
 
-           // System.Threading.Thread.Sleep(5000);
-          //  actions.MoveToElement(_homePage.CatalogItemSpecific(itemSpecific)).Perform();
-            // var elem = _driver.FindElement(By.CssSelector(".menu-aim__item-submenu a[title ='LG']"));
-          //  var elem = _driver.FindElement(By.XPath("//a[@title='Телевизоры, фото, видео']/following-sibling::div//a[@title='LG']"));
-
-         //  actions.MoveToElement(elem).Click().Build().Perform();
-
-
-
-            // _driver.FindElement(By.CssSelector(".menu-aim__item-submenu a[title ='LG']")).Click();
-            //elem.Click();
-
-            //_homePage.CatalogItemSpecific(itemSpecific).Click();
+            _homePage.CatalogItemSpecific(itemSpecific).Click();
         }
 
         public void WaitPageIsDisplayed()

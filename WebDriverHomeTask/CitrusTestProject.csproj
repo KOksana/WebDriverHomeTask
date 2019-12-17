@@ -55,9 +55,11 @@
     <Compile Include="Core\SeleniumDriver.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\ProductListPage.cs" />
+    <Compile Include="Pages\ProductPage.cs" />
     <Compile Include="Pages\SearchResultPage.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Steps\ProductListPageSteps.cs" />
+    <Compile Include="Steps\ProductPageSteps.cs" />
     <Compile Include="Steps\SearchResultPageSteps.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

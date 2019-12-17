@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OpenQA.Selenium;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
 
 namespace WebDriverHomeTask.Pages
 {
@@ -19,8 +15,5 @@ namespace WebDriverHomeTask.Pages
         public IWebElement[] ItemTitles => _driver.FindElements(By.CssSelector(".product-card__name a")).ToArray();
 
         public IWebElement CategoryTitle => _driver.FindElement(By.ClassName("catalog__main-content"));
-
-       // public IWebElement SearchTitle => _driver.FindElement(By.ClassName("result-title"));
-
     }
 }
