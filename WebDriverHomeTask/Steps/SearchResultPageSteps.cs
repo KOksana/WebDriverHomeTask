@@ -1,23 +1,16 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
 using System.Linq;
 using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
 {
-    class SearchResultPageSteps
+    public class SearchResultPageSteps : BaseSteps
     {
-        private IWebDriver _driver;
         private SearchResultPage _searchResultPage;
-        private WebDriverWait _wait;
 
-
-        public SearchResultPageSteps(IWebDriver driver)
+        public SearchResultPageSteps(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
-            _searchResultPage = new SearchResultPage(_driver);
-            _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
+            _searchResultPage = new SearchResultPage(driver);
         }
 
         public string[] GetResultItemTitles

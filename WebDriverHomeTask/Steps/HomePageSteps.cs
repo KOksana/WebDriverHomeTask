@@ -1,22 +1,16 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
-using System;
 using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class HomePageSteps
+    public class HomePageSteps : BaseSteps
     {
-        private IWebDriver _driver;
         private HomePage _homePage;
-        private WebDriverWait _wait;
 
-        public HomePageSteps(IWebDriver driver)
+        public HomePageSteps(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
-            _homePage = new HomePage(_driver);
-            _wait =  new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
+            _homePage = new HomePage(driver);
         }
 
         public void Search(string searchText)

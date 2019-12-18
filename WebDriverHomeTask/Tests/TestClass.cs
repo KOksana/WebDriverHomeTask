@@ -1,23 +1,12 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using System.Linq;
-using WebDriverHomeTask.Core;
 using WebDriverHomeTask.Steps;
+using WebDriverHomeTask.Tests;
 
 namespace WebDriverHomeTask
 {
-    public class TestClass
+    public class TestClass : BaseTestClass
     {
-        private IWebDriver _driver;
-        private const string URL = "https://www.citrus.ua/";
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            _driver = SeleniumDriver.Driver;
-            _driver.Manage().Window.Maximize();
-        }
-
         [Test]
         public void SearchMacbookTest()
         {
@@ -87,8 +76,8 @@ namespace WebDriverHomeTask
             var actualName = productPage.GetProductTitle;
             var actualPrice = productPage.GetProductPrice;
 
-            Assert.AreEqual(expectedName, actualName, $"Expected name {expectedName}, but displayed {actualName}");
-            Assert.AreEqual(expectedPrice, actualPrice, $"Expected price {expectedPrice}, but displayed {actualPrice}");
+            Assert.AreEqual(expectedName, actualName, "Product name is different");
+            Assert.AreEqual(expectedPrice, actualPrice, "Product price is different");
         }
 
         [Test]
@@ -98,7 +87,7 @@ namespace WebDriverHomeTask
             _driver.Url = URL;
             var homePage = new HomePageSteps(_driver);
             var resultPage = new SearchResultPageSteps(_driver);
-           
+
             homePage.WaitPageIsDisplayed();
 
             homePage.Search(searchProduct);
@@ -117,20 +106,13 @@ namespace WebDriverHomeTask
 
             Assert.AreEqual(expectedFilterList.Length, actualFilterList.Length, "Filter list has different length");
 
-            if (expectedFilterList.Length == actualFilterList.Length) {
-                for (int i = 0; i < expectedFilterList.Length; i++) {
-                    Assert.AreEqual(expectedFilterList[i], actualFilterList[i], "Different element name");
+            if (expectedFilterList.Length == actualFilterList.Length)
+            {
+                for (int i = 0; i < expectedFilterList.Length; i++)
+                {
+                    Assert.AreEqual(expectedFilterList[i], actualFilterList[i], "Different filter element name");
                 }
             }
-
-           
-        }
-
-
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            _driver.Quit();
         }
     }
 }

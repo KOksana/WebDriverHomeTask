@@ -3,14 +3,9 @@ using System.Linq;
 
 namespace WebDriverHomeTask.Pages
 {
-    public class SearchResultPage
+    public class SearchResultPage : BasePage
     {
-        private IWebDriver _driver;
-
-        public SearchResultPage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
+        public SearchResultPage(IWebDriver driver) : base(driver) { }
 
         public IWebElement[] ItemTitles => _driver.FindElements(By.CssSelector(".short-itm-desc > .card-product-link")).ToArray();
 

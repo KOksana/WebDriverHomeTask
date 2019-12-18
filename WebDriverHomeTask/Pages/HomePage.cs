@@ -2,14 +2,9 @@
 
 namespace WebDriverHomeTask.Pages
 {
-    public class HomePage
+    public class HomePage : BasePage
     {
-        private IWebDriver _driver;
-        
-        public HomePage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
+        public HomePage(IWebDriver driver) : base(driver) { }
 
         public IWebElement SearchField => _driver.FindElement(By.Id("search-input"));
 

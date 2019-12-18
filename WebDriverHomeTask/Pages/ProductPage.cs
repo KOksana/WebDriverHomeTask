@@ -1,14 +1,9 @@
 ﻿using OpenQA.Selenium;
 namespace WebDriverHomeTask.Pages
 {
-    public class ProductPage
+    public class ProductPage : BasePage
     {
-        private IWebDriver _driver;
-
-        public ProductPage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
+        public ProductPage(IWebDriver driver) : base(driver) { }
 
         public IWebElement ProductTitle => _driver.FindElement(By.ClassName("product__title"));
 
