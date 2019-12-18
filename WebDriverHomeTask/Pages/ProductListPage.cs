@@ -6,8 +6,10 @@ namespace WebDriverHomeTask.Pages
 {
     public class ProductListPage : BasePage
     {
-        public IWebElement[] ItemTitles => Driver.FindElements(By.CssSelector(".product-card__name a")).ToArray();
+        public IWebElement[] ItemTitles 
+            => Driver.FindElements(By.CssSelector(".product-card__name a")).ToArray();
 
-        public IWebElement CategoryTitle => Driver.FindElement(By.ClassName("catalog__main-content"));
+        public IWebElement CategoryTitle 
+            => Driver.FindElement(By.ClassName("catalog__main-content"));
     }
 }

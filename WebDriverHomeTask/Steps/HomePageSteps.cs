@@ -5,7 +5,7 @@ using static WebDriverHomeTask.Core.CustomWait;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class HomePageSteps : BaseStep
+    public class HomePageSteps : BaseSteps
     {
         private readonly HomePage _homePage;
         private readonly SeleniumActions _seleniumActions;

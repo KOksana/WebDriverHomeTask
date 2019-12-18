@@ -3,7 +3,7 @@ using static WebDriverHomeTask.Core.CustomWait;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class ProductPageSteps : BaseStep
+    public class ProductPageSteps : BaseSteps
     {
         private readonly ProductPage _productPage;
 

@@ -13,6 +13,13 @@ namespace WebDriverHomeTask.Core
             wait.Until(ElementIsVisible(element));
         }
 
+        public static bool IsElementBecomeVisibleInTimeout(IWebElement element, int timeout = 5)
+        {
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+            var isVisible = wait.Until(ElementIsVisible(element));
+            return isVisible;
+        }
+
         private static Func<IWebDriver, bool> ElementIsVisible(IWebElement element)
         {
             return driver => {

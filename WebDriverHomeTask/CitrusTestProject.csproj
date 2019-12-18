@@ -60,7 +60,7 @@
     <Compile Include="Pages\ProductListPage.cs" />
     <Compile Include="Pages\ProductPage.cs" />
     <Compile Include="Pages\SearchResultPage.cs" />
-    <Compile Include="Steps\BaseStep.cs" />
+    <Compile Include="Steps\BaseSteps.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Steps\ProductListPageSteps.cs" />
     <Compile Include="Steps\ProductPageSteps.cs" />

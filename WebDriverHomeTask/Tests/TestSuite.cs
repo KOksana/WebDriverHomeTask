@@ -14,6 +14,7 @@ namespace WebDriverHomeTask
         private static string SearchProductTv =>  "TV";
 
         // pages
+        private readonly BaseSteps _baseSteps;
         private readonly HomePageSteps _homePageSteps;
         private readonly SearchResultPageSteps _searchResultPageSteps;
         private readonly ProductListPageSteps _productListPageSteps;
@@ -21,6 +22,7 @@ namespace WebDriverHomeTask
 
         public TestSuite()
         {
+            _baseSteps = new BaseSteps();
             _homePageSteps = new HomePageSteps();
             _searchResultPageSteps = new SearchResultPageSteps();
             _productListPageSteps = new ProductListPageSteps();
@@ -31,6 +33,7 @@ namespace WebDriverHomeTask
         public void SetUp()
         {
             _homePageSteps.WaitPageIsDisplayed();
+            _baseSteps.ClosePopup();
         }
 
         [Test]
