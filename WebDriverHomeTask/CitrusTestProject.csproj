@@ -52,19 +52,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\SeleniumActions.cs" />
     <Compile Include="Core\SeleniumDriver.cs" />
+    <Compile Include="Core\CustomWait.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\ProductListPage.cs" />
     <Compile Include="Pages\ProductPage.cs" />
     <Compile Include="Pages\SearchResultPage.cs" />
-    <Compile Include="Steps\BaseSteps.cs" />
+    <Compile Include="Steps\BaseStep.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Steps\ProductListPageSteps.cs" />
     <Compile Include="Steps\ProductPageSteps.cs" />
     <Compile Include="Steps\SearchResultPageSteps.cs" />
-    <Compile Include="Tests\BaseTestClass.cs" />
-    <Compile Include="Tests\TestClass.cs" />
+    <Compile Include="Tests\BaseTest.cs" />
+    <Compile Include="Tests\TestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,5 +80,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.79.0.3945.3600\build\Selenium.WebDriver.ChromeDriver.targets')" />
 </Project>

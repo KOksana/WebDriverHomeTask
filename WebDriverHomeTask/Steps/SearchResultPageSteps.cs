@@ -1,27 +1,26 @@
-﻿using OpenQA.Selenium;
-using System.Linq;
+﻿using System.Linq;
 using WebDriverHomeTask.Pages;
+using static WebDriverHomeTask.Core.CustomWait;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class SearchResultPageSteps : BaseSteps
+    public class SearchResultPageSteps : BaseStep
     {
-        private SearchResultPage _searchResultPage;
+        private readonly SearchResultPage _searchResultPage;
 
-        public SearchResultPageSteps(IWebDriver driver) : base(driver)
+        public SearchResultPageSteps()
         {
-            _searchResultPage = new SearchResultPage(driver);
+            _searchResultPage = new SearchResultPage();
         }
 
         public string[] GetResultItemTitles
             => _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
 
-        public string[] GetFilterListForTV
+        public string[] GetFilterListForTv
             => _searchResultPage.FilterListForTV.Select(i => i.Text).ToArray();
 
-        public void NavigateToProduct(int productIndex) {
-            _searchResultPage.ItemTitles[productIndex].Click();
-        }
+        public void NavigateToProduct(int productIndex) 
+            => _searchResultPage.ItemTitles[productIndex].Click();
 
         public string GetProductName(int productIndex) 
             =>_searchResultPage.ItemTitles[productIndex].Text;
@@ -29,9 +28,7 @@ namespace WebDriverHomeTask.Steps
         public string GetProductPrice(int productIndex)
             => _searchResultPage.ItemPrices[productIndex].Text;
 
-        public void WaitSearchPageIsDisplayed()
-        {
-            _wait.Until(drv => _searchResultPage.SearchTitle.Displayed);
-        }
+        public void WaitSearchPageIsDisplayed() 
+            => WaitForElementToBecomeVisibleWithinTimeout(_searchResultPage.SearchTitle);
     }
 }

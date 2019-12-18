@@ -1,16 +1,19 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
+using WebDriverHomeTask.Core;
 using WebDriverHomeTask.Pages;
+using static WebDriverHomeTask.Core.CustomWait;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class HomePageSteps : BaseSteps
+    public class HomePageSteps : BaseStep
     {
-        private HomePage _homePage;
+        private readonly HomePage _homePage;
+        private readonly SeleniumActions _seleniumActions;
 
-        public HomePageSteps(IWebDriver driver) : base(driver)
+        public HomePageSteps()
         {
-            _homePage = new HomePage(driver);
+            _homePage = new HomePage();
+            _seleniumActions = new SeleniumActions();
         }
 
         public void Search(string searchText)
@@ -27,9 +30,8 @@ namespace WebDriverHomeTask.Steps
 
             //_homePage.CatalogItem(catalogItem).ClickA
 
-            Actions actions = new Actions(_driver);
-            
-            actions.MoveToElement(_homePage.CatalogItem(catalogItem)).ClickAndHold().Build().Perform();
+            _seleniumActions.MoveToElement(_homePage.CatalogItem(catalogItem)).ClickWithHold();
+ 
 
             // _wait.Until(drv => _homePage.CatalogItemSpecific(itemSpecific).Enabled);
 
@@ -46,8 +48,6 @@ namespace WebDriverHomeTask.Steps
         }
 
         public void WaitPageIsDisplayed()
-        {
-            _wait.Until(drv => _homePage.SearchField.Displayed);
-        }
+            => WaitForElementToBecomeVisibleWithinTimeout(_homePage.SearchField);
     }
 }

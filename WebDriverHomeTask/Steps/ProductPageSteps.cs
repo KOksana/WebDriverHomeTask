@@ -1,24 +1,24 @@
-﻿using OpenQA.Selenium;
-using WebDriverHomeTask.Pages;
+﻿using WebDriverHomeTask.Pages;
+using static WebDriverHomeTask.Core.CustomWait;
 
 namespace WebDriverHomeTask.Steps
 {
-    public class ProductPageSteps : BaseSteps
+    public class ProductPageSteps : BaseStep
     {
-        private ProductPage _productPage;
+        private readonly ProductPage _productPage;
 
-        public ProductPageSteps(IWebDriver driver) : base(driver)
+        public ProductPageSteps()
         {
-            _productPage = new ProductPage(driver);
+            _productPage = new ProductPage();
         }
 
-        public string GetProductTitle => _productPage.ProductTitle.Text;
+        public string GetProductTitle 
+            => _productPage.ProductTitle.Text;
 
-        public string GetProductPrice => _productPage.ProductPrice.Text;
+        public string GetProductPrice 
+            => _productPage.ProductPrice.Text;
 
-        public void WaitProductPageIsDisplayed()
-        {
-            _wait.Until(drv => _productPage.ProductTitle.Displayed);
-        }
+        public void WaitProductPageIsDisplayed() 
+            => WaitForElementToBecomeVisibleWithinTimeout(_productPage.ProductTitle);
     }
 }
