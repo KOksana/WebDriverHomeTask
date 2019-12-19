@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using static WebDriverHomeTask.Core.SeleniumDriver;
 
 namespace WebDriverHomeTask.Tests
@@ -10,6 +11,7 @@ namespace WebDriverHomeTask.Tests
         [OneTimeSetUp]
         public void Setup()
         {
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             Driver.Navigate().GoToUrl(BaseUrl);
             Driver.Manage().Window.Maximize();
         }
