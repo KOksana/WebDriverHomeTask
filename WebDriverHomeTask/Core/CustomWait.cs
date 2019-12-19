@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using static WebDriverHomeTask.Core.SeleniumDriver;
+using static WebDriverHomeTask.Core.SeleniumWebDriver;
 
 namespace WebDriverHomeTask.Core
 {

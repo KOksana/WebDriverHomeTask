@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace WebDriverHomeTask.Core
 {
-    public static class SeleniumDriver
+    public static class SeleniumWebDriver
     {
         private static IWebDriver _driver;
 

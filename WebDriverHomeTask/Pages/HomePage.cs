@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using static WebDriverHomeTask.Core.SeleniumDriver;
+using static WebDriverHomeTask.Core.SeleniumWebDriver;
 
 namespace WebDriverHomeTask.Pages
 {

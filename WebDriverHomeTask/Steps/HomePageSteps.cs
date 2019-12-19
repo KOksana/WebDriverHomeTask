@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using WebDriverHomeTask.Core;
 using WebDriverHomeTask.Pages;
 using static WebDriverHomeTask.Core.CustomWait;
 
@@ -8,12 +7,10 @@ namespace WebDriverHomeTask.Steps
     public class HomePageSteps : BaseSteps
     {
         private readonly HomePage _homePage;
-        private readonly SeleniumActions _seleniumActions;
 
         public HomePageSteps()
         {
             _homePage = new HomePage();
-            _seleniumActions = new SeleniumActions();
         }
 
         public void Search(string searchText)
@@ -30,7 +27,11 @@ namespace WebDriverHomeTask.Steps
 
             //_homePage.CatalogItem(catalogItem).ClickA
 
-            _seleniumActions.MoveToElement(_homePage.CatalogItem(catalogItem)).ClickWithHold();
+            var element1 = _homePage.CatalogItem(catalogItem);
+
+            //var element2 = _homePage.CatalogItem(catalogItem2);
+
+            //Driver.Hover(element1).ClickWithHold(element2);
  
 
             // _wait.Until(drv => _homePage.CatalogItemSpecific(itemSpecific).Enabled);
