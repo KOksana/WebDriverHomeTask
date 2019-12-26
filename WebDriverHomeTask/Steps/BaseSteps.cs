@@ -1,18 +1,16 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+﻿using OpenQA.Selenium.Support.UI;
 using System;
+using static WebDriverHomeTask.Core.SeleniumDriver;
 
 namespace WebDriverHomeTask.Steps
 {
     public class BaseSteps
     {
-        protected IWebDriver _driver;
         protected WebDriverWait _wait;
 
-        public BaseSteps(IWebDriver driver)
+        public BaseSteps()
         {
-            _driver = driver;
-            _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 20));
+            _wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 20));
         }
     }
 }

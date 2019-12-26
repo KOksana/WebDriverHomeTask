@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using WebDriverHomeTask.Pages;
+using static WebDriverHomeTask.Core.SeleniumDriver;
 
 namespace WebDriverHomeTask.Steps
 {
@@ -8,9 +9,9 @@ namespace WebDriverHomeTask.Steps
     {
         private HomePage _homePage;
 
-        public HomePageSteps(IWebDriver driver) : base(driver)
+        public HomePageSteps()
         {
-            _homePage = new HomePage(driver);
+            _homePage = new HomePage();
         }
 
         public void Search(string searchText)
@@ -27,7 +28,7 @@ namespace WebDriverHomeTask.Steps
 
             //_homePage.CatalogItem(catalogItem).ClickA
 
-            Actions actions = new Actions(_driver);
+            Actions actions = new Actions(Driver);
             
             actions.MoveToElement(_homePage.CatalogItem(catalogItem)).ClickAndHold().Build().Perform();
 

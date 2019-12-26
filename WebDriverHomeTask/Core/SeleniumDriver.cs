@@ -3,20 +3,10 @@ using OpenQA.Selenium.Chrome;
 
 namespace WebDriverHomeTask.Core
 {
-    public class SeleniumDriver
+    public static class SeleniumDriver
     {
         private static IWebDriver _driver;
 
-        public static IWebDriver Driver
-        {
-            get
-            {
-                if (_driver == null)
-                {
-                    _driver = new ChromeDriver();
-                }
-                return _driver;
-            }
-        }
+        public static IWebDriver Driver => _driver ?? (_driver = new ChromeDriver());
     }
 }

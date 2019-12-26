@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using System.Linq;
+﻿using System.Linq;
 using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
@@ -8,9 +7,9 @@ namespace WebDriverHomeTask.Steps
     {
         private SearchResultPage _searchResultPage;
 
-        public SearchResultPageSteps(IWebDriver driver) : base(driver)
+        public SearchResultPageSteps()
         {
-            _searchResultPage = new SearchResultPage(driver);
+            _searchResultPage = new SearchResultPage();
         }
 
         public string[] GetResultItemTitles

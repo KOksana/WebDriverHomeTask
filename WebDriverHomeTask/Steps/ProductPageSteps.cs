@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using WebDriverHomeTask.Pages;
+﻿using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
 {
@@ -7,9 +6,9 @@ namespace WebDriverHomeTask.Steps
     {
         private ProductPage _productPage;
 
-        public ProductPageSteps(IWebDriver driver) : base(driver)
+        public ProductPageSteps()
         {
-            _productPage = new ProductPage(driver);
+            _productPage = new ProductPage();
         }
 
         public string GetProductTitle => _productPage.ProductTitle.Text;

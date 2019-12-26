@@ -12,8 +12,8 @@ namespace WebDriverHomeTask
         {
             string searchProduct = "macbook";
             _driver.Url = URL;
-            var homePage = new HomePageSteps(_driver);
-            var resultPage = new SearchResultPageSteps(_driver);
+            var homePage = new HomePageSteps();
+            var resultPage = new SearchResultPageSteps();
 
             homePage.WaitPageIsDisplayed();
 
@@ -35,8 +35,8 @@ namespace WebDriverHomeTask
             string itemSpecific = "LG";
 
             _driver.Url = URL;
-            var homePage = new HomePageSteps(_driver);
-            var resultPage = new ProductListPageSteps(_driver);
+            var homePage = new HomePageSteps();
+            var resultPage = new ProductListPageSteps();
 
             homePage.WaitPageIsDisplayed();
 
@@ -56,9 +56,9 @@ namespace WebDriverHomeTask
         {
             string searchProduct = "TV";
             _driver.Url = URL;
-            var homePage = new HomePageSteps(_driver);
-            var resultPage = new SearchResultPageSteps(_driver);
-            var productPage = new ProductPageSteps(_driver);
+            var homePage = new HomePageSteps();
+            var resultPage = new SearchResultPageSteps();
+            var productPage = new ProductPageSteps();
 
             homePage.WaitPageIsDisplayed();
 
@@ -85,8 +85,8 @@ namespace WebDriverHomeTask
         {
             string searchProduct = "TV";
             _driver.Url = URL;
-            var homePage = new HomePageSteps(_driver);
-            var resultPage = new SearchResultPageSteps(_driver);
+            var homePage = new HomePageSteps();
+            var resultPage = new SearchResultPageSteps();
 
             homePage.WaitPageIsDisplayed();
 

@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using System.Linq;
+﻿using System.Linq;
 using WebDriverHomeTask.Pages;
 
 namespace WebDriverHomeTask.Steps
@@ -9,9 +8,9 @@ namespace WebDriverHomeTask.Steps
         private ProductListPage _productListPage;
 
 
-        public ProductListPageSteps(IWebDriver driver) : base(driver)
+        public ProductListPageSteps()
         {
-            _productListPage = new ProductListPage(driver);
+            _productListPage = new ProductListPage();
         }
 
         public string[] GetResultItemTitles
