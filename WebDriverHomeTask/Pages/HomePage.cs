@@ -1,19 +1,19 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using static WebDriverHomeTask.Core.SeleniumDriver;
 
 namespace WebDriverHomeTask.Pages
 {
     public class HomePage : BasePage
     {
-       // public HomePage(IWebDriver driver) : base(driver) { }
+        [FindsBy(How = How.Id, Using = "search-input")]
+        public IWebElement SearchField;
 
-        public IWebElement SearchField => Driver.FindElement(By.Id("search-input"));
-
-        public IWebElement CatalogButton => Driver.FindElement(By.CssSelector(".menu--desktop__title i"));
+        [FindsBy(How = How.CssSelector, Using = ".menu--desktop__title i")]
+        public IWebElement CatalogButton;
 
         public IWebElement CatalogItem(string titleName) => Driver.FindElement(By.CssSelector($"a[title='{titleName}']"));
 
         public IWebElement CatalogItemSpecific(string titleName) => Driver.FindElement(By.CssSelector($".menu-aim__item-submenu a[title ='{titleName}']"));
-
     }
 }

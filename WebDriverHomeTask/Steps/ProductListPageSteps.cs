@@ -7,7 +7,6 @@ namespace WebDriverHomeTask.Steps
     {
         private ProductListPage _productListPage;
 
-
         public ProductListPageSteps()
         {
             _productListPage = new ProductListPage();

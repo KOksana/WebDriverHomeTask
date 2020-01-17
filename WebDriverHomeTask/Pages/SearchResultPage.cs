@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using System.Linq;
 using static WebDriverHomeTask.Core.SeleniumDriver;
 
@@ -12,6 +13,7 @@ namespace WebDriverHomeTask.Pages
 
         public IWebElement[] FilterListForTV => Driver.FindElements(By.CssSelector(".filter-itm a")).ToArray();
 
-        public IWebElement SearchTitle => Driver.FindElement(By.ClassName("result-title"));
+        [FindsBy(How = How.ClassName, Using = "result-title")]
+        public IWebElement SearchTitle;
     }
 }

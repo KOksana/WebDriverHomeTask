@@ -12,5 +12,10 @@ namespace WebDriverHomeTask.Steps
         {
             _wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 20));
         }
+
+        public void NavigateToUrl(string URL)
+        {
+            Driver.Navigate().GoToUrl(URL);
+        }
     }
 }

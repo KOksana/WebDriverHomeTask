@@ -1,12 +1,14 @@
 ﻿using OpenQA.Selenium;
-using static WebDriverHomeTask.Core.SeleniumDriver;
+using SeleniumExtras.PageObjects;
 
 namespace WebDriverHomeTask.Pages
 {
     public class ProductPage : BasePage
     {
-        public IWebElement ProductTitle => Driver.FindElement(By.ClassName("product__title"));
+        [FindsBy(How = How.ClassName, Using = "product__title")]
+        public IWebElement ProductTitle;
 
-        public IWebElement ProductPrice => Driver.FindElement(By.CssSelector(".el-tabs .price  span  span"));
+        [FindsBy(How = How.CssSelector, Using = ".el-tabs .price  span  span")]
+        public IWebElement ProductPrice;
     }
 }
