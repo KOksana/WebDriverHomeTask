@@ -5,7 +5,7 @@ namespace WebDriverHomeTask.Pages
 {
     public class BasePage
     {
-        public BasePage()
+        protected BasePage()
         {
             PageFactory.InitElements(Driver, this);
         }

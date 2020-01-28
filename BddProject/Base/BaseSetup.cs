@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
-using NUnit.Framework;
+﻿using TechTalk.SpecFlow;
 using static WebDriverHomeTask.Core.SeleniumDriver;
 
 namespace BddProject.Base
 {
+    [Binding]
     public class BaseSetup
     {
         [BeforeFeature]
-        public void Setup()
+        public static void FeatureSetup()
         {
             Driver.Manage().Window.Maximize();
         }
 
         [AfterFeature]
-        public void TearDown()
+        public static void FeatureTearDown()
         {
             Driver.Quit();
         }

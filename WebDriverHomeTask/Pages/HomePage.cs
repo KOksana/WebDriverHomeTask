@@ -7,7 +7,7 @@ namespace WebDriverHomeTask.Pages
     public class HomePage : BasePage
     {
         [FindsBy(How = How.Id, Using = "search-input")]
-        public IWebElement SearchField;
+        public IWebElement SearchField { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menu--desktop__title i")]
         public IWebElement CatalogButton;
