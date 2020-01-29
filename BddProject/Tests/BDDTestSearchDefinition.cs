@@ -1,5 +1,4 @@
-﻿using BddProject.Base;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Linq;
 using TechTalk.SpecFlow;
 using WebDriverHomeTask.Steps;
@@ -7,7 +6,7 @@ using WebDriverHomeTask.Steps;
 namespace BddProject.Steps
 {
     [Binding]
-    public class BDDTestSearchDefinition : BaseSetup
+    public class BDDTestSearchDefinition : TechTalk.SpecFlow.Steps
     {
         protected const string URL = "https://www.citrus.ua/";
 
