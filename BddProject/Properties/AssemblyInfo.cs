@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BddProject")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EPAM Systems")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BddProject")]
-[assembly: AssemblyCopyright("Copyright © EPAM Systems 2020")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
