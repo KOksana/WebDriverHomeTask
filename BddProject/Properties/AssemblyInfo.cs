@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WebDriverHomeTask")]
+[assembly: AssemblyTitle("BddProject")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EPAM Systems")]
-[assembly: AssemblyProduct("WebDriverHomeTask")]
-[assembly: AssemblyCopyright("Copyright © EPAM Systems 2019")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("BddProject")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6e36cd3d-504c-4576-a1b5-f3567f2c08b1")]
+[assembly: Guid("c44d085c-139e-4818-ad71-5e4ae204f821")]
 
 // Version information for an assembly consists of the following four values:
 //

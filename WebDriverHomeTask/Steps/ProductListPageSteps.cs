@@ -12,7 +12,7 @@ namespace WebDriverHomeTask.Steps
             _productListPage = new ProductListPage();
         }
 
-        public string[] GetResultItemTitles
+        public string[] GetResultItemTitles()
             => _productListPage.ItemTitles.Select(i => i.Text).ToArray();
 
         public void WaitCatalogPageIsDisplayed()
