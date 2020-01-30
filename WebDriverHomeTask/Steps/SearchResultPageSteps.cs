@@ -15,7 +15,7 @@ namespace WebDriverHomeTask.Steps
         public string[] GetResultItemTitles
             => _searchResultPage.ItemTitles.Select(i => i.Text).ToArray();
 
-        public string[] GetFilterListForTV
+        public string[] GetFilterListForTV()
             => _searchResultPage.FilterListForTV.Select(i => i.Text).ToArray();
 
         public void NavigateToProduct(int productIndex) {

@@ -40,13 +40,11 @@ namespace WebDriverHomeTask.Tests
         public void SearchMacbookTest()
         {
             _homePageSteps.Search(searchProductMac);
-
             _searchResultPageSteps.WaitSearchPageIsDisplayed();
 
             var resultList = _searchResultPageSteps.GetResultItemTitles;
 
             Assert.IsTrue(resultList.Length > 0, "No elements in result");
-
             Assert.IsTrue(resultList.All(i => i.ToLower().Contains(searchProductMac)), "Not All contains product name");
         }
 
@@ -54,13 +52,11 @@ namespace WebDriverHomeTask.Tests
         public void NavigateTVLG()
         {
             _homePageSteps.NavigateTo(catalogItem, itemSpecific);
-
             _productListPageSteps.WaitCatalogPageIsDisplayed();
 
-            var resultList = _productListPageSteps.GetResultItemTitles;
+            var resultList = _productListPageSteps.GetResultItemTitles();
 
             Assert.IsTrue(resultList.Length > 0, "No elements in result");
-
             Assert.IsTrue(resultList.All(i => i.Contains(itemSpecific)), "Not All contains product name");
         }
 
@@ -68,14 +64,12 @@ namespace WebDriverHomeTask.Tests
         public void SearchAndCheckTV()
         {
             _homePageSteps.Search(searchProductTv);
-
             _searchResultPageSteps.WaitSearchPageIsDisplayed();
 
             var expectedName = _searchResultPageSteps.GetProductName(0);
             var expectedPrice = _searchResultPageSteps.GetProductPrice(0);
 
             _searchResultPageSteps.NavigateToProduct(0);
-
             _productPageSteps.WaitProductPageIsDisplayed();
 
             var actualName = _productPageSteps.GetProductTitle;
@@ -100,7 +94,7 @@ namespace WebDriverHomeTask.Tests
                 "iMac"
             };
 
-            var actualFilterList = _searchResultPageSteps.GetFilterListForTV;
+            var actualFilterList = _searchResultPageSteps.GetFilterListForTV();
 
             Assert.AreEqual(expectedFilterList.Length, actualFilterList.Length, "Filter list has different length");
             CollectionAssert.AreEquivalent(expectedFilterList,actualFilterList, "Different filter element name");
